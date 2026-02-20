@@ -27,7 +27,7 @@ def main():
         print(f"Score range: {score_range}")
 
     except ValueError:
-        print("Bruhh we're expecting an int value")
+        print("BRUHH WE'RE EXPECTING AN INT VALUE!")
 
 if __name__ == "__main__":
     main()
