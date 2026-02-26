@@ -6,13 +6,17 @@ def process_data(data_set: list) -> None:
 
 def list_comprehension(data: list) -> None:
     print("=== List comprehension Examples ===")
-    high_scores = []
+    high_scorers = []
     scores_doubled = []
     active_players = []
 
     player_names = [name for name in raw_data['players']]
-    for player in player_names:
-        print(f"{player}")
+    for player in raw_data:
+        if ((player['players']['total_score']) > 2000):
+            high_scorers = player['players']
+    
+    print(f"{high_corers}")
+
 
 def main():
     print("=== Game Analytics Dashboard ===")
