@@ -2,22 +2,21 @@ raw_data = {'players': {'alice': {'level': 41, 'total_score': 2824, 'sessions_pl
 
 def process_data(data_set: list) -> None:
     for event in data_set:
-        yield evebt
+        yield event
 
 def list_comprehension(data: list) -> None:
     print("=== List comprehension Examples ===")
-    high_scores = int([])
-    scores_doubled = int([])
-    active_players = int([])
+    high_scores = []
+    scores_doubled = []
+    active_players = []
 
-    for player in process_data(data):
-        if 
+    player_names = [name for name in raw_data['players']]
+    for player in player_names:
+        print(f"{player}")
 
 def main():
     print("=== Game Analytics Dashboard ===")
-
-    
-    pritn("")
+    list_comprehension(raw_data)
 
 if __name__ == "__main__":
     main()
