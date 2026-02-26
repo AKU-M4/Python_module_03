@@ -11,7 +11,8 @@ def print_inv_report(inv: dict) -> None:
         rarity = stats.get('rarity', 'common')
 
         items_price = price * qty
-        print(f"{item} ({cat}, {rarity}): {qty}x @ {price} gold each = {items_price} gold")
+        print(f"{item} ({cat}, {rarity}): {qty}x @ {price}"
+              f"gold each = {items_price} gold")
 
         inv_value += items_price
         total_items += qty
