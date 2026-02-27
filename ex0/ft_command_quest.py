@@ -1,6 +1,8 @@
 from sys import argv
 
+
 def main():
+    """Process and display command line arguments."""
     print("=== Command Quest ===")
     av_len = len(argv)
     if av_len == 1:
@@ -13,7 +15,7 @@ def main():
             print(f"Argument {i}: {p}")
             i += 1
         print(f"Total arguments: {av_len}")
-        
+
 
 if __name__ == "__main__":
     main()

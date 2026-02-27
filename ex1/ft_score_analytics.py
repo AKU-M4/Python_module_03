@@ -1,13 +1,16 @@
 from sys import argv
 
+
 def main():
-    """ Function that takes scores """
-    print("=== Player Score Analytics === \n")
+    """Process and analyze player scores from command line arguments."""
+    print("=== Player Score Analytics ===\n")
     av_len = len(argv)
-    if (av_len == 1):
-        print(f"No Scores were provided. Usage: python3 {argv[0]} <score 1> <score 2> ...")
+    if av_len == 1:
+        print(f"No Scores were provided. "
+              f"Usage: python3 {argv[0]} <score 1> <score 2> ...")
         return
     try:
+
         # Storing all the values
         scores = [int(num) for num in argv[1:]]
         total_players = av_len - 1
@@ -21,13 +24,14 @@ def main():
         print(f"Scores processed: {scores}")
         print(f"Total Players {total_players}")
         print(f"Total score: {total_score}")
-        print(f"Average score: %.2f" %(average_score))
+        print(f"Average score: {average_score:.2f}")
         print(f"High score: {high_score}")
         print(f"Low score: {low_score}")
         print(f"Score range: {score_range}")
 
     except ValueError:
         print("BRUHH WE'RE EXPECTING AN INT VALUE!")
+
 
 if __name__ == "__main__":
     main()

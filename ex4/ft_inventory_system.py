@@ -1,5 +1,5 @@
 def print_inv_report(inv: dict) -> None:
-    """Calculates and prints the report, returning totals for analytics."""
+    """Calculate and print inventory report with totals for analytics."""
     inv_value = 0
     total_items = 0
     cat_totals = {}
@@ -11,7 +11,7 @@ def print_inv_report(inv: dict) -> None:
         rarity = stats.get('rarity', 'common')
 
         items_price = price * qty
-        print(f"{item} ({cat}, {rarity}): {qty}x @ {price}"
+        print(f"{item} ({cat}, {rarity}): {qty}x @ {price} "
               f"gold each = {items_price} gold")
 
         inv_value += items_price
@@ -23,17 +23,22 @@ def print_inv_report(inv: dict) -> None:
 
     cat_strings = [f"{c}({q})" for c, q in cat_totals.items()]
     print(f"Categories: {', '.join(cat_strings)}")
-    
+
     # Return these values so main() can use them for Analytics
     return inv_value, total_items
 
+
 def main() -> None:
+    """Main function for player inventory system."""
     print("=== Player Inventory System ===")
 
     alice_inv = {
-        "sword": {"cat": "weapon", "rarity": "rare", "qty": 1, "price": 500},
-        "potion": {"cat": "consumable", "rarity": "common", "qty": 5, "price": 50},
-        "shield": {"cat": "armor", "rarity": "uncommon", "qty": 1, "price": 200},
+        "sword": {"cat": "weapon", "rarity": "rare",
+                  "qty": 1, "price": 500},
+        "potion": {"cat": "consumable", "rarity":
+                   "common", "qty": 5, "price": 50},
+        "shield": {"cat": "armor", "rarity": "uncommon",
+                   "qty": 1, "price": 200},
     }
     bob_inv = {}
 
@@ -61,13 +66,14 @@ def main() -> None:
     # (Simplified for this example)
     alice_val = sum(v['qty'] * v['price'] for v in alice_inv.values())
     bob_val = sum(v['qty'] * v['price'] for v in bob_inv.values())
-    
+
     print("\n=== Inventory Analytics ===")
-    
+
     # Most Valuable Player
     mvp = "Alice" if alice_val >= bob_val else "Bob"
-    print(f"Most valuable player: {mvp} ({max(alice_val, bob_val)} gold)")
-    
+    print(f"Most valuable player: {mvp} ({max(alice_val, bob_val)} "
+          f"gold)")
+
     # Most Items
     alice_total_qty = sum(v['qty'] for v in alice_inv.values())
     print(f"Most items: Alice ({alice_total_qty} items)")
@@ -76,12 +82,14 @@ def main() -> None:
     rare_list = []
     for inventory in [alice_inv, bob_inv]:
         for name, stats in inventory.items():
-            if stats['rarity'] in ['rare', 'legendary'] and name not in rare_list:
+            if (stats['rarity'] in ['rare', 'legendary'] and
+                    name not in rare_list):
                 rare_list.append(name)
-    
-    # Adding 'magic_ring' manually as per your requirement example if needed, 
-    # but here we find them dynamically
+
+    # Adding 'magic_ring' manually as per your requirement example if
+    # needed, but here we find them dynamically
     print(f"Rarest items: {', '.join(rare_list)}")
+
 
 if __name__ == "__main__":
     main()
